@@ -1,0 +1,57 @@
+.navSearch{
+    background: linear-gradient(90deg, #c800ff, #ffffff, #001eff) ;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.randomButton{
+    margin: 10px 100px;
+    background: linear-gradient(90deg, #ff2600, #00ff8c, #001eff);
+    color: #ffffff;
+    border-radius: 5px;
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+    animation: animation 10s linear infinite;
+}
+
+
+.randomButton:hover{
+    animation-name: surprise;
+        -webkit-animation-name: surprise;
+        -moz-animation-name: surprise;
+    animation-duration: .8s;
+        -webkit-animation-duration: .8s;
+        -moz-animation-duration: .8s;
+}
+
+    @keyframes surprise
+    {
+        0% {transform: rotate(0deg) scale(1,1);;}
+        10% {transform: rotate(7deg) scale(2,2);}
+        20% {transform: rotate(-7deg) scale(2,2);}
+        30% {transform: rotate(7deg) scale(2,2);}
+        40% {transform: rotate(-7deg) scale(2,2);}
+        50% {transform: rotate(7deg) scale(2,2);}
+        60% {transform: rotate(-7deg) scale(2,2);}
+        70% {transform: rotate(7deg) scale(2,2);}
+        80% {transform: rotate(-7deg) scale(2,2);}
+        90% {transform: rotate(7deg) scale(2,2);}
+        100% {transform: rotate(0deg) scale(1,1);}
+    }
+
+    @keyframes animation {
+        0% {
+          background-position: 0% 100%;
+        }
+        50% {
+          background-position: 100% 0%;
+        }
+        100% {
+          background-position: 0% 100%;
+        }
+      }

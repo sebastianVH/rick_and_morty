@@ -1,0 +1,14 @@
+/* .cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: space-around;
+} */
+
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,400px));
+    grid-gap: 5px;
+}
