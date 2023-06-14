@@ -5,7 +5,7 @@
     margin: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-evenly;
 }
 
 .randomButton{
@@ -55,3 +55,28 @@
           background-position: 0% 100%;
         }
       }
+
+.linksNav{
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ justify-content:space-evenly;
+ align-content: flex-start;
+ margin: auto;
+}
+
+.links {
+  font-size: 25px;
+  padding: 0px 15px;
+  text-decoration: none;
+}
+
+@keyframes escalar {
+  from{transform: scale(1);}
+  to{transform: scale(1.5);}
+}
+
+.links:hover{
+  animation: escalar .5s;
+  animation-fill-mode: forwards;
+}

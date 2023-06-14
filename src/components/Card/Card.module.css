@@ -35,6 +35,24 @@
     
 }
 
+
+.links{
+  text-decoration: none;
+}
+
+@keyframes escalar {
+  from{transform: scale(1);}
+  to{transform: scale(1.3);
+  -webkit-text-stroke: 0.2px black;}
+}
+
+.links h1:hover{
+  animation: escalar .5s;
+  animation-fill-mode: forwards;
+}
+
+
+
 @keyframes animation {
     0% {
       background-position: 0% 100%;
