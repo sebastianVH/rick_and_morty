@@ -8,6 +8,7 @@ export default function SearchBar({search}) {
    const handleChange = (event) => {
       setId(event.target.value)
    }
+   
 
    return (
       <div className={styles.container}>

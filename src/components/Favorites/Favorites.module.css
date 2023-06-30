@@ -1,0 +1,27 @@
+.selector{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background-color: rgb(187, 191, 191);
+    font-family: rick;
+    font-size: 20px;
+}
+
+.label{
+    color: white;
+    font-size: x-large;
+    text-shadow: -2px 2px black;
+    -webkit-text-stroke: 0.7px black;
+}
+
+.divSelectores{
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(205, 203, 203, 0.569);
+    border: 2px dotted black;
+    border-radius: 10px;
+}

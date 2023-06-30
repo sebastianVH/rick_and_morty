@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
-        "morty"
-    ]
+        "morty",
+        "userdata"
+    ],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

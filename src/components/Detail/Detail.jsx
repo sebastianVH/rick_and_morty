@@ -12,7 +12,6 @@ export default function Detail() {
     useEffect(() => {
         axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
            if (data.name) {
-            console.log(data);
               setCharacter(data);
            } else {
               window.alert('No hay personajes con ese ID');
@@ -20,8 +19,7 @@ export default function Detail() {
         });
         return setCharacter({});
      }, [id]);
-
-
+    
     return(
         <div className={styles.divDetail}>
             <div className={styles.divContenido}>
@@ -29,7 +27,7 @@ export default function Detail() {
                 <h1>{character.status}</h1>
                 <h1>{character.species}</h1>
                 <h1>{character.gender}</h1>
-                <h1>{"character.origin.name"}</h1>
+                <h1>{character?.origin?.name}</h1>
             </div>
             <div className={styles.divImagen}>
                 <img src={character.image} alt="" srcset="" />
