@@ -1,4 +1,4 @@
-import { connect, useSelector,useDispatch } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
 import styles from '../Card/Card.module.css'
 import styleFav from '../Cards/Cards.module.css'
 import myStyle from '../Favorites/Favorites.module.css'
@@ -6,12 +6,6 @@ import { filterCards,orderCards } from "../../redux/actions"
 import { useState } from "react"
 
 
-export function mapStateToProps(state) {
-    return{
-        myFavorites: state.myFavorites,
-        allCharacters: state.allCharacters
-    }
-}
 
 function Favorites(){
 
@@ -69,6 +63,4 @@ function Favorites(){
     )
 }
 
-
-
-export default connect(mapStateToProps)(Favorites)
+export default Favorites

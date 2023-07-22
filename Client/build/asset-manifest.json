@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c0b2d3f0.css",
+    "main.js": "/static/js/main.d59e2a2a.js",
+    "static/media/rick-y-morty.jpg": "/static/media/rick-y-morty.115311c97677f6feb154.jpg",
+    "static/media/img-perfil.jpg": "/static/media/img-perfil.0fdea9875e2af8728b74.jpg",
+    "static/media/login.jpg": "/static/media/login.b1bce6dfbff2db928793.jpg",
+    "static/media/get_schwifty.ttf": "/static/media/get_schwifty.c3d1dfc692e3547fed16.ttf",
+    "index.html": "/index.html",
+    "main.c0b2d3f0.css.map": "/static/css/main.c0b2d3f0.css.map",
+    "main.d59e2a2a.js.map": "/static/js/main.d59e2a2a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0b2d3f0.css",
+    "static/js/main.d59e2a2a.js"
+  ]
+}

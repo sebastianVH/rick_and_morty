@@ -6,7 +6,7 @@ import Cards from './components/Cards/Cards.jsx';
 import NavBar from './components/Nav/Nav';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites'
-import axios from 'axios';
+import axios from 'axios'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
             window.alert('¡No hay personajes con este ID!');
          }
       });
-      
    }
 
    const onClose = (id) => {
@@ -43,13 +42,14 @@ function App() {
       
    const navigate = useNavigate()
 
-   function login ({email, password})  {
-      if (email === EMAIL && password === PASSWORD){
-         setAccess(true)
-         navigate('/home')
-      } else {
-         alert("Usuario/contraseña no validos")
-      }
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
