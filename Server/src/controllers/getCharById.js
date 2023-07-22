@@ -19,22 +19,36 @@ const express = require('express')
 
 const URL = "https://rickandmortyapi.com/api/character/"
 
-const getCharById = (req, res) => {
-    // const { id } = req.params
-    const id = parseInt(req.params.id)
+// const getCharById = (req, res) => {
+//     // const { id } = req.params
+//     const id = parseInt(req.params.id)
 
-    axios(`${URL}${id}`)
-    .then(({ data }) => {
+//     axios(`${URL}${id}`)
+//     .then(({ data }) => {
 
+//         const { status, name, species, origin, image, gender } = data
+
+//         const character = { id, status, name, species, origin, image, gender}
+
+//         return character.name ? res.status(200).json(character) : res.status(404).send('Not found')
+//     })
+//     .catch((error)=>{
+//         return res.status(500).json({error:error.message})
+//     })
+// }
+
+const getCharById = async (req, res) => {
+    try {
+        const id = parseInt(req.params.id)
+        console.log(id);
+        const {data} = await axios(`${URL}${id}`)
         const { status, name, species, origin, image, gender } = data
-
         const character = { id, status, name, species, origin, image, gender}
-
         return character.name ? res.status(200).json(character) : res.status(404).send('Not found')
-    })
-    .catch((error)=>{
-        return res.status(500).json({error:error.message})
-    })
+    } catch (error) {
+        return res.status(404).json({error: 'No existe el personaje buscado'})
+    }
+
 }
 
 module.exports = getCharById

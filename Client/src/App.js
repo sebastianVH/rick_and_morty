@@ -18,22 +18,38 @@ function App() {
    const PASSWORD = "seba1234"
 
 
-   const onSearch = (id)=>{
+   // const onSearch = (id)=>{
+
+   //    const characterExists = characters.some((character) => character.id === parseInt(id));
+   //    if (characterExists) {
+   //       window.alert('¡El personaje ya existe!');
+   //       return;
+   //    }
+      
+   //    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(( {data} ) => {
+   //       console.log(data);
+   //       if (data?.name) {
+   //       setCharacters((oldChars) => [...oldChars, data]);
+   //       } else {
+   //          window.alert('¡No hay personajes con este ID!');
+   //       }
+   //    });
+   // }
+
+   const onSearch = async (id)=>{
 
       const characterExists = characters.some((character) => character.id === parseInt(id));
       if (characterExists) {
-         window.alert('¡El personaje ya existe!');
+         window.alert('¡El personaje ya fue agregado!');
          return;
       }
-      
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(( {data} ) => {
-         console.log(data);
-         if (data?.name) {
+      try {
+         const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
          setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
+      } catch (error) {
+         window.alert(error.response.data.error)
+      }
+;
    }
 
    const onClose = (id) => {
