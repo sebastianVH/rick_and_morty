@@ -40,7 +40,6 @@ const URL = "https://rickandmortyapi.com/api/character/"
 const getCharById = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        console.log(id);
         const {data} = await axios(`${URL}${id}`)
         const { status, name, species, origin, image, gender } = data
         const character = { id, status, name, species, origin, image, gender}

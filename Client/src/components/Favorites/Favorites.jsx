@@ -11,7 +11,7 @@ function Favorites(){
 
     const [aux,setAux] = useState(false)
 
-    const myFavorites = useSelector((state) => state.myFavorites)
+    const myFavorites = useSelector((state) => state.allCharacters)
     const dispatch = useDispatch()
 
     const handleOrder = (e) => {

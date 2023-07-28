@@ -10,6 +10,7 @@
 
 .randomButton{
     margin: 10px 100px;
+    padding-top: 8px;
     background: linear-gradient(90deg, #ff2600, #01be01, #001eff);
     color: #ffffff;
     border-radius: 5px;
@@ -18,13 +19,13 @@
         -moz-transition: .5s, color .10s;
     /* animation: animation 10s linear infinite; */
     animation-name: slide;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
 
 @keyframes slide {
   0% {transform: translateX(0);}
-  50% {transform: translateX(20px);}
+  50% {transform: translateX(40px);}
   100% {transform: translateX(0);}
 }
 
@@ -42,15 +43,15 @@
     @keyframes surprise
     {
         0% {transform: rotate(0deg) scale(1,1);;}
-        10% {transform: rotate(7deg) scale(2,2);}
-        20% {transform: rotate(-7deg) scale(2,2);}
-        30% {transform: rotate(7deg) scale(2,2);}
-        40% {transform: rotate(-7deg) scale(2,2);}
-        50% {transform: rotate(7deg) scale(2,2);}
-        60% {transform: rotate(-7deg) scale(2,2);}
-        70% {transform: rotate(7deg) scale(2,2);}
-        80% {transform: rotate(-7deg) scale(2,2);}
-        90% {transform: rotate(7deg) scale(2,2);}
+        10% {transform: rotate(7deg) scale(1.5,1.5);}
+        20% {transform: rotate(-7deg) scale(1.5,1.5);}
+        30% {transform: rotate(7deg) scale(1.5,1.5);}
+        40% {transform: rotate(-7deg) scale(1.5,1.5);}
+        50% {transform: rotate(7deg) scale(1.5,1.5);}
+        60% {transform: rotate(-7deg) scale(1.5,1.5);}
+        70% {transform: rotate(7deg) scale(1.5,1.5);}
+        80% {transform: rotate(-7deg) scale(1.5,1.5);}
+        90% {transform: rotate(7deg) scale(1.5,1.5);}
         100% {transform: rotate(0deg) scale(1,1);}
     }
 
