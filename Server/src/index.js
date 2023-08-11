@@ -2,6 +2,7 @@ const express = require('express')
 const router = require('./routes/index')
 const morgan = require('morgan')
 const cors = require('cors')
+const { conn } = require('./DB_connection');
 
 const server = express()
 const PORT = 3001;
@@ -18,9 +19,12 @@ request --> morgan --> cors --> express.json() -> ruta ('/rickandmorty')
 
 server.use('/rickandmorty', router)
 
-server.listen(PORT,()=>{
-  console.log(`Server is listening on port: ${PORT}`);
+conn.sync({force:true}).then(() => {
+  server.listen(PORT,()=>{
+    console.log(`Server is listening on port: ${PORT}`);
+  })
 })
+
 
 // server creado con http
 // http.createServer((req,res)=>{
