@@ -14,9 +14,6 @@ function App() {
    const { pathname } = useLocation()
    const [characters,setCharacters] = useState([])
    const [access,setAccess] = useState(false)
-   const EMAIL = "seba@gmail.com"
-   const PASSWORD = "seba1234"
-
 
    // const onSearch = (id)=>{
 
@@ -61,11 +58,13 @@ function App() {
    function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
+      
+        axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
+         }).catch( error => alert(error.response.data.error))
+         
    }
 
    useEffect(() => {

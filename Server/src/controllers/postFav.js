@@ -2,7 +2,7 @@ const {Favorite} = require("../DB_connection")
 
 const postFav = async (req,res) => {
     const {id,name,origin,status,image,species,gender} = req.body
-    if(!name || !origin || !status || !image || !species || !gender) return res.status(401).json({message:"Faltan Datos"})
+    if(!name || !origin || !status || !image || !species || !gender) return res.status(401).json({error:"Faltan Datos"})
     try {
         const character = await Favorite.create({
                 id:id,
@@ -18,7 +18,7 @@ const postFav = async (req,res) => {
             return res.status(203).json(allCharacters)
         }
     } catch (error) {
-        return res.status(500).json({message: error.message})
+        return res.status(500).json({error: error.message})
     }
 
 }

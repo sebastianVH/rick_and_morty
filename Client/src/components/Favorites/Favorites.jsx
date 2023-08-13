@@ -2,9 +2,9 @@ import { useSelector,useDispatch } from "react-redux"
 import styles from '../Card/Card.module.css'
 import styleFav from '../Cards/Cards.module.css'
 import myStyle from '../Favorites/Favorites.module.css'
-import { filterCards,orderCards } from "../../redux/actions"
-import { useState } from "react"
-
+import { filterCards,orderCards,removeFav } from "../../redux/actions"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 
 function Favorites(){
@@ -22,6 +22,10 @@ function Favorites(){
     const handleFilter = (e) => {
         dispatch(filterCards(e.target.value))
     }
+
+    useEffect(()=>{
+        dispatch(filterCards(""))
+    },[])
 
     return(
         <div>
@@ -48,8 +52,11 @@ function Favorites(){
             {myFavorites.map(character =>{
                 return(
                     <div className={styles.cardContainer} key={character.id}>
+                    <button title={"Remover de Favoritos"} className={myStyle.buttonClose} onClick={() => {dispatch(removeFav(character.id))}}>X</button>
                     <p hidden={true}> {character.id}</p>
-                    <h1 className={styles.textDetail}>{character.name}</h1>
+                    <Link className={styles.links} to={`/detail/${character.id}`}>
+                        <h1 className={styles.textDetail}>{character.name}</h1>
+                    </Link>
                     <h3 className={styles.textDetail}>{character.status}</h3>
                     <h3 className={styles.textDetail}>{character.species}</h3>
                     <h3 className={styles.textDetail}>{character.gender}</h3>

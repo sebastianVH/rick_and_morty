@@ -3,13 +3,16 @@ import React, { useState, useEffect } from "react";
 import styles from './Card.module.css'
 import { Link } from "react-router-dom";
 import { addFav,removeFav } from "../../redux/actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
-function Card({character, close, addFav, removeFav, myFavorites}) {
+function Card({character,close}) {
 
 
    const [isFav, setIsFav] = useState(false)
+
+   const myFavorites = useSelector(state => state.myFavorites)
+   const dispatch = useDispatch()
 
    useEffect(() => {
       myFavorites.forEach((fav) => {
@@ -20,7 +23,7 @@ function Card({character, close, addFav, removeFav, myFavorites}) {
    }, [myFavorites,character.id]);  
 
    const handleFavorite = () => {
-      (isFav) ? removeFav(character.id): addFav(character)
+      (isFav) ? dispatch(removeFav(character.id)): dispatch(addFav(character))
       setIsFav(!isFav)
    }
 
@@ -35,22 +38,9 @@ function Card({character, close, addFav, removeFav, myFavorites}) {
          <h3 className={styles.textDetail}>{character.species}</h3>
          <h3 className={styles.textDetail}>{character.gender}</h3>
          <h3 className={styles.textDetail}>{character.origin.name}</h3>
-         <img className={styles.imgDetail} src={character.image} alt='' />
+         <img className={styles.imgDetail} src={character.image} alt={character.name} />
       </div>
    );
 }
 
-export const mapDispatchToProps = (dispatch) => {
-   return {
-      addFav: (character) => dispatch(addFav(character)),
-      removeFav: (id) => dispatch(removeFav(id))
-   }
-}
-
-export function mapStateToProps(state) {
-   return{
-      myFavorites: state.myFavorites
-   }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Card)
+export default Card
