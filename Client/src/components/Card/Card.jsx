@@ -31,14 +31,21 @@ function Card({character,close}) {
       <div className={styles.cardContainer} key={character.id} transition-style={"in:square:center"}>
          {isFav ? (<button title={"Quitar de Fav"} className={styles.btnFav} onClick={handleFavorite}>❤️</button>) : (<button title={"Agregar a Fav"} className={styles.btnFav} onClick={handleFavorite}>🤍</button>)}
          <button className={styles.buttonClose} onClick={() => {close(character.id);removeFav(character.id)}}>X</button>
-         <Link className={styles.links} to={`/detail/${character.id}`}>
-            <h1 className={styles.textDetail}>{character.name}</h1>
-         </Link>
-         <h3 className={styles.textDetail}>{character.status}</h3>
-         <h3 className={styles.textDetail}>{character.species}</h3>
-         <h3 className={styles.textDetail}>{character.gender}</h3>
-         <h3 className={styles.textDetail}>{character.origin.name}</h3>
          <img className={styles.imgDetail} src={character.image} alt={character.name} />
+         <Link className={styles.links} to={`/detail/${character.id}`}>
+            <h1 className={styles.textDetailTitle}>{character.name}</h1>
+         </Link>
+         <h5 className={styles.textDetail}>Status: </h5>
+         <h2 className={styles.textDetail}>{character.status}</h2>
+         <br/>
+         <h5 className={styles.textDetail}>Specie: </h5>
+         <h2 className={styles.textDetail}>{character.species}</h2>
+         <br/>
+         <h5 className={styles.textDetail}>Gender:</h5>
+         <h2 className={styles.textDetail}>{character.gender}</h2>
+         <br/>
+         <h5 className={styles.textDetail}>Origin:  </h5>
+         <h2 className={styles.textDetail}>{character.origin.name}</h2>
       </div>
    );
 }
