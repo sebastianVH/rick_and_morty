@@ -53,6 +53,7 @@ function Favorites(){
                 return(
                     <div className={styles.cardContainer} key={character.id}>
                     <button title={"Remover de Favoritos"} className={myStyle.buttonClose} onClick={() => {dispatch(removeFav(character.id))}}>X</button>
+                    <img className={styles.imgDetail} src={character.image} alt='' />
                     <p hidden={true}> {character.id}</p>
                     <Link className={styles.links} to={`/detail/${character.id}`}>
                         <h1 className={styles.textDetail}>{character.name}</h1>
@@ -61,7 +62,6 @@ function Favorites(){
                     <h3 className={styles.textDetail}>{character.species}</h3>
                     <h3 className={styles.textDetail}>{character.gender}</h3>
                     <h3 className={styles.textDetail}>{character.origin.name}</h3>
-                    <img className={styles.imgDetail} src={character.image} alt='' />
                 </div>
                 )
             })}

@@ -55,16 +55,30 @@ function App() {
       
    const navigate = useNavigate()
 
+   const accessUser = (data) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+   }
+
    function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
       
-        axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');
+        axios(URL + `?email=${email}&password=${password}`)
+        .then(({ data }) => {
+         accessUser(data)
          }).catch( error => alert(error.response.data.error))
          
+   }
+
+   const register = (userData) => {
+      const {email, password} = userData
+      axios.post('http://localhost:3001/rickandmorty/login/',{email:email, password:password})
+      .then(({data}) => {
+            accessUser(data)
+      })
+      .catch(error => alert(error.response.data.error))
    }
 
    useEffect(() => {
@@ -75,7 +89,7 @@ function App() {
       <div className='App'>
          {pathname !== '/' && <NavBar search ={onSearch} />}
          <Routes> 
-            <Route path="/" element={<Form login={login} />}/>
+            <Route path="/" element={<Form login={login} register={register} />}/>
             <Route path="/favorites" element={<Favorites close={onClose} />}/>
             <Route path="/home" element={<Cards characters={characters} close={onClose} />} />
             <Route path="/about" element={<About/>}/>

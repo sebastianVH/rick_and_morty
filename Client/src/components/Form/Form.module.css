@@ -1,12 +1,10 @@
 .container{
-    font-size: 2rem;
     min-height: 100px;
     width: 15em;
     object-fit: contain;
     border-radius: 15px;
-    background-color: rgba(0, 0, 255, 0.503);
     margin: 0 auto;
-    translate: 0vh 20vh ;
+    translate: -75vh 0vh ;
 }
 
 
@@ -22,7 +20,7 @@
 }
 
 label:first-of-type{
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 span{
@@ -39,27 +37,36 @@ span{
 }
 
 button {
-    background-color: rgb(1, 255, 251);
-    color: black;
+    background-color: rgb(160, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 5px;
-    padding: 3px 10px;
+    text-align: center;
+    padding: 4px 35px;
+    font-size: large;
 }
 
 button:hover{
     cursor: pointer;
-    background-color: black;
-    color: rgb(1,255,251)
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 1, 1);
 }
 
 input {
     outline: none;
     border-radius: 10px;
+    width: 30vh;
+    height: 5vh;
 }
 
 .error{
-    
     border-color: red;
     background-color: rgb(253, 141, 141);
+}
+
+.errorText{
+    text-shadow: 2px 2px 1px black;
+    font-size: 15px;
+    font-family:'Times New Roman', Times, serif
 }
 
 .success{
@@ -69,5 +76,35 @@ input {
 
 .inputLabel{
     text-shadow: -2px 1px black;
+    /* transform: translateX(-50px); */
+    font-size: 25px;
     text-align: center;
+}
+
+.loginBanner{
+    text-shadow: 2px 2px 4px black;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 10vh;
+}
+
+p{
+    color: aliceblue;
+    margin-bottom: 0px;
+    font-family:'Times New Roman', Times, serif
+}
+
+.btnSubmit{
+    background-color: rgb(42, 182, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+    padding: 4px 35px;
+    font-size: large;
+}
+
+.btnSubmit:hover{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(42, 182, 0);
 }

@@ -16,20 +16,31 @@
 .cardContainer{
     font-size: 25px;
     scale: 0.70;
-    border: 3px solid rgb(255, 252, 252);
+    border: 2px solid rgb(129, 129, 129);
     border-radius: 15px;
     margin: 10px;
     padding: 10px;
-    background: linear-gradient(90deg, #c800ff, #ffffff, #001eff);
+    /* background: linear-gradient(90deg, #c800ff, #ffffff, #001eff); */
+    background-color: rgba(0, 0, 0, 0.849);
     background-size: 200% 200%;
     animation: animation 7s linear infinite;
 }
 
 .textDetail{
-    animation: resplandor 4s ease-in-out infinite;
+    /* animation: resplandor 4s ease-in-out infinite; */
     color: white;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+}
+
+.textDetailTitle{
+  font-size: 65px;
+}
+
+h5{
+  font-weight: 100;
 }
 
 .imgDetail{
