@@ -25,7 +25,7 @@ function Favorites(){
 
     useEffect(()=>{
         dispatch(filterCards(""))
-    },[])
+    },[dispatch])
 
     return(
         <div>

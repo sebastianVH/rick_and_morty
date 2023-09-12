@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import {useState } from "react"
 import { Validations } from "./validation"
 import styles from "./Form.module.css"
-import imagen from "../../assets/img/login.jpg"
+
 
 
 export default function Form({login,register}){
