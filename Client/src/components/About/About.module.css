@@ -19,7 +19,7 @@ h1{
     animation: resplandor 3s infinite;
 }
 
-p {
+.text {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(6, 0, 0);
 }

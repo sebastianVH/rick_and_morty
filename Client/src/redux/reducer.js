@@ -1,12 +1,15 @@
-import {ADD_FAV,REMOVE_FAV,FILTER,ORDER} from './actions'
+import {ADD_FAV,REMOVE_FAV,FILTER,ORDER,SET_USER} from './actions_types'
 
 const initialState = {
     myFavorites: [],
     allCharacters:[],
+    setUser:{access:false}
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case SET_USER:
+            return {...state, setUser: action.payload};
         case ADD_FAV:
             return { ...state, myFavorites: action.payload, allCharacters: action.payload };
         case REMOVE_FAV:

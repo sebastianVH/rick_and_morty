@@ -8,30 +8,17 @@ import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites'
 import axios from 'axios'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from './redux/actions';
+
+
 
 function App() {
    
    const { pathname } = useLocation()
    const [characters,setCharacters] = useState([])
-   const [access,setAccess] = useState(false)
-
-   // const onSearch = (id)=>{
-
-   //    const characterExists = characters.some((character) => character.id === parseInt(id));
-   //    if (characterExists) {
-   //       window.alert('¡El personaje ya existe!');
-   //       return;
-   //    }
-      
-   //    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(( {data} ) => {
-   //       console.log(data);
-   //       if (data?.name) {
-   //       setCharacters((oldChars) => [...oldChars, data]);
-   //       } else {
-   //          window.alert('¡No hay personajes con este ID!');
-   //       }
-   //    });
-   // }
+   const access = useSelector(state => state.setUser.access)
+   const dispatch = useDispatch()
 
    const onSearch = async (id)=>{
 
@@ -57,7 +44,7 @@ function App() {
 
    const accessUser = (data) => {
       const { access } = data;
-      setAccess(data);
+      //setAccess(access);
       access && navigate('/home');
    }
 
@@ -65,8 +52,9 @@ function App() {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
       
-        axios(URL + `?email=${email}&password=${password}`)
+        axios.post(URL,{email:email, password:password})
         .then(({ data }) => {
+         dispatch(setUser(data))
          accessUser(data)
          }).catch( error => alert(error.response.data.error))
          
@@ -74,7 +62,7 @@ function App() {
 
    const register = (userData) => {
       const {email, password} = userData
-      axios.post('http://localhost:3001/rickandmorty/login/',{email:email, password:password})
+      axios.post('http://localhost:3001/rickandmorty/register/',{email:email, password:password})
       .then(({data}) => {
             accessUser(data)
       })

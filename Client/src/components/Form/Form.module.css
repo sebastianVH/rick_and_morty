@@ -1,10 +1,22 @@
 .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100px;
     width: 15em;
     object-fit: contain;
     border-radius: 15px;
-    margin: 0 auto;
-    translate: -75vh 0vh ;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 
